@@ -1,0 +1,31 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\n  \"thought_process\": \"The player is weak and broke. Their previous attack was pathetic. I will focus on reinforcing my weakest node, NODE_ALPHA, to ensure they have zero chance of penetration while I consolidate my resources to crush them later.\",\n  \"action_type\": \"reinforce_node\",\n  \"target_node\": \"NODE_ALPHA\",\n  \"allocated_budget\": 50000,\n  \"allocated_bandwidth\": 100,\n  \"operator_message\": \"Kamu masih mencoba untuk berdiri setelah kegagalan memalukan itu? Menyedihkan. NODE_ALPHA yang kau retak kemarin sekarang sudah kubentengi kembali. Setiap rupiah dan bandwidth yang kau buang hanya mempercepat kejatuhanmu. Tetaplah bersembunyi di lubangmu, tikus, karena saat aku selesai denganmu, tidak akan ada sisa kode yang bisa kau gunakan untuk memohon ampun.\"\n}",
+            "thoughtSignature": "EnEKbwERTTIPlygcrPidC2OcMq4PoBUgnFrS93XEU+eYodhjHc7Dk0jAZyUBoQTRfCQxbP5/4dxnolxh6QYx62dDIrQv+99h6mqnIYtbQqggnC4sUR0rBnpHKPlyPAjTxrzNS8+BaBl/1UkOI+uxiqL/8g=="
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 652,
+    "candidatesTokenCount": 201,
+    "totalTokenCount": 853,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 652
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.1-flash-lite",
+  "responseId": "TTOUas61HK6HjuMPyq_L8Qc"
+}
