@@ -1,0 +1,102 @@
+object FormSetting: TFormSetting
+  Left = 400
+  Height = 280
+  Top = 200
+  Width = 420
+  Caption = 'AI Service Settings'
+  ClientHeight = 280
+  ClientWidth = 420
+  Font.Color = clLime
+  Font.Name = 'Consolas'
+  Position = poOwnerFormCenter
+  LCLVersion = '4.4.0.0'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object lblProvider: TLabel
+    Left = 20
+    Height = 14
+    Top = 20
+    Width = 84
+    Caption = 'AI Provider:'
+    Font.Color = clBlue
+    Font.Name = 'Consolas'
+    ParentFont = False
+  end
+  object cbProvider: TComboBox
+    Left = 20
+    Height = 22
+    Top = 40
+    Width = 380
+    Font.Color = clBlue
+    Font.Name = 'Consolas'
+    ItemHeight = 14
+    ParentFont = False
+    Style = csDropDownList
+    TabOrder = 0
+    OnChange = cbProviderChange
+  end
+  object lblEndpoint: TLabel
+    Left = 20
+    Height = 14
+    Top = 80
+    Width = 91
+    Caption = 'Endpoint URL:'
+    Font.Color = clBlue
+    Font.Name = 'Consolas'
+    ParentFont = False
+  end
+  object edtEndpoint: TEdit
+    Left = 20
+    Height = 22
+    Top = 100
+    Width = 380
+    Font.Color = clBlue
+    Font.Name = 'Consolas'
+    ParentFont = False
+    TabOrder = 1
+  end
+  object lblApiKey: TLabel
+    Left = 20
+    Height = 14
+    Top = 140
+    Width = 56
+    Caption = 'API Key:'
+    Font.Color = clBlue
+    Font.Name = 'Consolas'
+    ParentFont = False
+  end
+  object edtApiKey: TEdit
+    Left = 20
+    Height = 22
+    Top = 160
+    Width = 380
+    Font.Color = clBlack
+    Font.Name = 'Consolas'
+    ParentFont = False
+    TabOrder = 2
+    TextHint = 'Enter Gemini API Key...'
+  end
+  object btnSave: TButton
+    Left = 210
+    Height = 35
+    Top = 220
+    Width = 90
+    Caption = 'SAVE'
+    Font.Color = clWindowText
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    OnClick = btnSaveClick
+  end
+  object btnCancel: TButton
+    Left = 310
+    Height = 35
+    Top = 220
+    Width = 90
+    Caption = 'CANCEL'
+    Font.Color = clWindowText
+    ParentFont = False
+    TabOrder = 4
+    OnClick = btnCancelClick
+  end
+end
