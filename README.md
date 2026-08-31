@@ -5,7 +5,7 @@ CartelNET: Dark Operator is a tactical cyber-warfare strategy game featuring a d
 
 ## ☕ Support the Project
 
-If you find **Admiral** helpful and want to support its ongoing development, consider buying me a coffee or sending a tip. Any support is deeply appreciated!
+If you find **CartelNET** helpful and want to support its ongoing development, consider buying me a coffee or sending a tip. Any support is deeply appreciated!
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Buy%20Me%20a%20Coffee-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://Ko-fi.com/ainovasinusantara)
 [![PayPal](https://img.shields.io/badge/PayPal-Donate-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/KangOz)
