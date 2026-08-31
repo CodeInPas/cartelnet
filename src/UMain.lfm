@@ -9,29 +9,31 @@ object FormMain: TFormMain
   Color = clBlack
   Font.Color = clLime
   Font.Name = 'Consolas'
+  Menu = MainMenu1
   Position = poScreenCenter
   LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
   object pnlLeft: TPanel
-    Left = 0
-    Height = 720
-    Top = 0
-    Width = 750
+    Left = 10
+    Height = 700
+    Top = 10
+    Width = 720
     Align = alClient
+    BorderSpacing.Around = 10
     BevelOuter = bvNone
-    ClientHeight = 720
-    ClientWidth = 750
+    ClientHeight = 700
+    ClientWidth = 720
     Color = 855309
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
     object pbMap: TPaintBox
       Left = 10
-      Height = 496
+      Height = 475
       Top = 10
-      Width = 730
+      Width = 700
       Align = alClient
       BorderSpacing.Around = 10
       OnPaint = pbMapPaint
@@ -39,8 +41,8 @@ object FormMain: TFormMain
     object memLog: TMemo
       Left = 5
       Height = 150
-      Top = 516
-      Width = 740
+      Top = 495
+      Width = 710
       Align = alBottom
       BorderSpacing.Around = 5
       BorderStyle = bsNone
@@ -56,28 +58,28 @@ object FormMain: TFormMain
     end
     object lblTaunt: TLabel
       Left = 6
-      Height = 17
-      Top = 672
-      Width = 738
+      Height = 18
+      Top = 651
+      Width = 708
       Align = alBottom
       BorderSpacing.Around = 6
       Caption = 'Operator Message (Taunt):'
       Font.Color = clYellow
       Font.Height = -15
-      Font.Name = 'Arial'
+      Font.Name = 'Consolas'
       Font.Quality = fqCleartypeNatural
       ParentFont = False
     end
     object edtTaunt: TEdit
       Left = 6
       Height = 19
-      Top = 695
-      Width = 738
+      Top = 675
+      Width = 708
       Align = alBottom
       BorderSpacing.Around = 6
       BorderStyle = bsNone
-      Color = 8537150
-      Font.Color = clAqua
+      Color = 3684640
+      Font.Color = clWhite
       Font.Height = -16
       Font.Name = 'Consolas'
       Font.Quality = fqCleartypeNatural
@@ -88,348 +90,57 @@ object FormMain: TFormMain
     end
   end
   object pnlRight: TPanel
-    Left = 750
-    Height = 720
-    Top = 0
+    Left = 740
+    Height = 700
+    Top = 10
     Width = 330
     Align = alRight
+    BorderSpacing.Around = 10
     BevelOuter = bvNone
-    ClientHeight = 720
+    ClientHeight = 700
     ClientWidth = 330
-    Color = clBlack
+    Color = 5327673
     ParentBackground = False
     ParentColor = False
     TabOrder = 1
-    object pgControls: TPageControl
-      Left = 5
-      Height = 396
-      Top = 272
-      Width = 320
-      ActivePage = tsAttack
-      Align = alBottom
-      BorderSpacing.Around = 5
-      Font.Color = clLime
-      Font.Height = -12
-      Font.Name = 'Arial'
-      ParentFont = False
-      TabIndex = 0
-      TabOrder = 0
-      TabPosition = tpBottom
-      object tsAttack: TTabSheet
-        Caption = 'Operations'
-        ClientHeight = 368
-        ClientWidth = 312
-        object Panel3: TPanel
-          Left = 0
-          Height = 368
-          Top = 0
-          Width = 312
-          Align = alClient
-          BevelOuter = bvNone
-          ClientHeight = 368
-          ClientWidth = 312
-          ParentBackground = False
-          TabOrder = 0
-          object lblAction: TLabel
-            Left = 18
-            Height = 17
-            Top = 16
-            Width = 276
-            Align = alTop
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 10
-            BorderSpacing.Right = 12
-            BorderSpacing.Around = 6
-            Caption = 'Operation Type:'
-            Font.Color = clLime
-            Font.Height = -15
-            Font.Name = 'Arial'
-            Font.Quality = fqCleartypeNatural
-            ParentFont = False
-          end
-          object cbAction: TComboBox
-            Left = 18
-            Height = 25
-            Top = 39
-            Width = 276
-            Align = alTop
-            BorderSpacing.Left = 12
-            BorderSpacing.Right = 12
-            BorderSpacing.Around = 6
-            Font.Color = clBlack
-            Font.Height = -15
-            Font.Name = 'Arial'
-            Font.Quality = fqCleartypeNatural
-            ItemHeight = 17
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 0
-            OnChange = cbActionChange
-          end
-          object lblTarget: TLabel
-            Left = 18
-            Height = 17
-            Top = 80
-            Width = 276
-            Align = alTop
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 10
-            BorderSpacing.Right = 12
-            BorderSpacing.Around = 6
-            Caption = 'Target Node:'
-            Font.Color = clLime
-            Font.Height = -15
-            Font.Name = 'Arial'
-            Font.Quality = fqCleartypeNatural
-            ParentFont = False
-          end
-          object cbTarget: TComboBox
-            Left = 18
-            Height = 25
-            Top = 103
-            Width = 276
-            Align = alTop
-            BorderSpacing.Left = 12
-            BorderSpacing.Right = 12
-            BorderSpacing.Around = 6
-            Font.Color = clBlack
-            Font.Height = -15
-            Font.Name = 'Arial'
-            Font.Quality = fqCleartypeNatural
-            ItemHeight = 17
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 1
-          end
-          object lblBudget: TLabel
-            Left = 18
-            Height = 17
-            Top = 144
-            Width = 276
-            Align = alTop
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 10
-            BorderSpacing.Right = 12
-            BorderSpacing.Around = 6
-            Caption = 'Budget Allocate:'
-            Font.Color = clLime
-            Font.Height = -15
-            Font.Name = 'Arial'
-            Font.Quality = fqCleartypeNatural
-            ParentFont = False
-          end
-          object tbBudget: TTrackBar
-            Left = 10
-            Height = 25
-            Top = 167
-            Width = 292
-            Max = 100
-            Position = 0
-            OnChange = tbBudgetChange
-            Align = alTop
-            BorderSpacing.Left = 4
-            BorderSpacing.Right = 4
-            BorderSpacing.Around = 6
-            TabOrder = 2
-          end
-          object pbTelemetry: TPaintBox
-            Left = 8
-            Height = 149
-            Top = 211
-            Width = 296
-            Align = alClient
-            Anchors = [akRight]
-            BorderSpacing.Around = 8
-            OnPaint = pbTelemetryPaint
-          end
-          object lbvBudget: TLabel
-            Left = 18
-            Height = 1
-            Top = 202
-            Width = 276
-            Align = alTop
-            BorderSpacing.Left = 12
-            BorderSpacing.Top = 4
-            BorderSpacing.Right = 12
-            BorderSpacing.Around = 6
-            Font.Color = clFuchsia
-            Font.Height = -15
-            Font.Name = 'Arial'
-            Font.Quality = fqCleartypeNatural
-            ParentFont = False
-          end
-        end
-      end
-      object tsMarket: TTabSheet
-        Caption = 'Black Market'
-        ClientHeight = 368
-        ClientWidth = 312
-        object Panel5: TPanel
-          Left = 0
-          Height = 368
-          Top = 0
-          Width = 312
-          Align = alClient
-          BevelOuter = bvNone
-          ClientHeight = 368
-          ClientWidth = 312
-          ParentBackground = False
-          TabOrder = 0
-          object lblUpgQuantum: TLabel
-            Left = 5
-            Height = 38
-            Top = 5
-            Width = 302
-            Align = alTop
-            AutoSize = False
-            BorderSpacing.Around = 5
-            Caption = 'Quantum Decryption (Lvl 0) - Cost: $0'
-            Font.Color = clFuchsia
-            Font.Height = -15
-            Font.Name = 'Arial'
-            ParentFont = False
-            WordWrap = True
-          end
-          object btnBuyQuantum: TButton
-            Left = 5
-            Height = 35
-            Top = 48
-            Width = 302
-            Align = alTop
-            BorderSpacing.Around = 5
-            Caption = 'BUY UPGRADE'
-            Font.Color = clWindowText
-            ParentFont = False
-            TabOrder = 0
-            OnClick = btnBuyQuantumClick
-          end
-          object lblUpgProxy: TLabel
-            Left = 5
-            Height = 48
-            Top = 88
-            Width = 302
-            Align = alTop
-            AutoSize = False
-            BorderSpacing.Around = 5
-            Caption = 'Offshore Proxy (Lvl 0) - Cost: $0'
-            Font.Color = clFuchsia
-            Font.Height = -15
-            Font.Name = 'Arial'
-            ParentFont = False
-            WordWrap = True
-          end
-          object btnBuyProxy: TButton
-            Left = 5
-            Height = 35
-            Top = 141
-            Width = 302
-            Align = alTop
-            BorderSpacing.Around = 5
-            Caption = 'BUY UPGRADE'
-            Font.Color = clWindowText
-            ParentFont = False
-            TabOrder = 1
-            OnClick = btnBuyProxyClick
-          end
-        end
-      end
-      object tsSettings: TTabSheet
-        Caption = 'Settings'
-        ClientHeight = 368
-        ClientWidth = 312
-        object Panel4: TPanel
-          Left = 0
-          Height = 368
-          Top = 0
-          Width = 312
-          Align = alClient
-          BevelOuter = bvNone
-          ClientHeight = 368
-          ClientWidth = 312
-          ParentBackground = False
-          TabOrder = 0
-          object btnOpenSettings: TButton
-            Left = 8
-            Height = 40
-            Top = 8
-            Width = 296
-            Align = alTop
-            BorderSpacing.Around = 8
-            Caption = 'CONFIGURE AI SERVICE'
-            Font.Color = clWindowText
-            Font.Style = [fsBold]
-            ParentFont = False
-            TabOrder = 0
-            OnClick = btnOpenSettingsClick
-          end
-          object lblLanguage: TLabel
-            Left = 8
-            Height = 17
-            Top = 56
-            Width = 296
-            Align = alTop
-            BorderSpacing.Around = 8
-            Caption = 'AI Language:'
-            Font.Color = clAqua
-            Font.Height = -15
-            Font.Name = 'Arial'
-            ParentFont = False
-          end
-          object cbLanguage: TComboBox
-            Left = 8
-            Height = 25
-            Top = 81
-            Width = 296
-            Align = alTop
-            BorderSpacing.Around = 8
-            Font.Color = clBlack
-            Font.Height = -15
-            Font.Name = 'Arial'
-            ItemHeight = 17
-            ParentFont = False
-            Style = csDropDownList
-            TabOrder = 1
-          end
-        end
-      end
-    end
     object Panel1: TPanel
       Left = 0
-      Height = 162
-      Top = 98
+      Height = 154
+      Top = 450
       Width = 330
-      Align = alClient
+      Align = alBottom
       BorderSpacing.Bottom = 12
       BevelOuter = bvNone
-      ClientHeight = 162
+      ClientHeight = 154
       ClientWidth = 330
-      Color = clBlack
       ParentBackground = False
-      ParentColor = False
-      TabOrder = 1
+      TabOrder = 0
       object lblAIPersona: TLabel
         Left = 2
         Height = 45
-        Top = 115
+        Top = 107
         Width = 326
         Align = alBottom
         Alignment = taCenter
         AutoSize = False
         BorderSpacing.Around = 2
         Caption = 'Ghost Status: ANALYZING'
-        Font.Color = clRed
-        Font.Height = -13
+        Color = 3952457
+        Font.Color = 7434751
+        Font.Height = -15
+        Font.Name = 'Consolas'
         Font.Style = [fsBold]
+        ParentColor = False
         ParentFont = False
         WordWrap = True
       end
       object Image1: TImage
         AnchorSideLeft.Control = Panel1
         AnchorSideLeft.Side = asrCenter
-        Left = 131
-        Height = 64
+        Left = 133
+        Height = 72
         Top = 8
-        Width = 68
+        Width = 65
         Picture.Data = {
           1754506F727461626C654E6574776F726B477261706869637E23000089504E47
           0D0A1A0A0000000D4948445200000040000000400806000000AA6971DE000000
@@ -719,73 +430,513 @@ object FormMain: TFormMain
         }
       end
     end
-    object btnExecute: TButton
-      Left = 6
-      Height = 40
-      Top = 674
-      Width = 318
-      Align = alBottom
-      BorderSpacing.Around = 6
-      Caption = 'EXECUTE EXPLOIT'
-      Font.Color = clWindowText
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 2
-      OnClick = btnExecuteClick
-    end
     object Panel2: TPanel
-      Left = 8
+      Left = 16
       Height = 82
       Top = 8
-      Width = 314
+      Width = 306
       Align = alTop
+      BorderSpacing.Left = 8
       BorderSpacing.Around = 8
       BevelOuter = bvNone
       ClientHeight = 82
-      ClientWidth = 314
-      Color = 3217181
+      ClientWidth = 306
       ParentBackground = False
-      ParentColor = False
-      TabOrder = 3
+      TabOrder = 1
       object lblHeat: TLabel
         Left = 5
-        Height = 17
-        Top = 49
-        Width = 304
+        Height = 20
+        Top = 55
+        Width = 296
         Align = alTop
         BorderSpacing.Around = 5
         Caption = 'Heat : 0%'
         Font.Color = clAqua
-        Font.Height = -15
-        Font.Name = 'Arial'
+        Font.Height = -17
+        Font.Name = 'Consolas'
         ParentFont = False
       end
       object lblBandwidth: TLabel
         Left = 5
-        Height = 17
-        Top = 27
-        Width = 304
+        Height = 20
+        Top = 30
+        Width = 296
         Align = alTop
         BorderSpacing.Around = 5
         Caption = 'Bandwidth: 0 TBps'
         Font.Color = clAqua
-        Font.Height = -15
-        Font.Name = 'Arial'
+        Font.Height = -17
+        Font.Name = 'Consolas'
         ParentFont = False
       end
       object lblFunds: TLabel
         Left = 5
-        Height = 17
+        Height = 20
         Top = 5
-        Width = 304
+        Width = 296
         Align = alTop
         BorderSpacing.Around = 5
         Caption = 'Crypto : $0'
         Font.Color = clAqua
-        Font.Height = -15
-        Font.Name = 'Arial'
+        Font.Height = -17
+        Font.Name = 'Consolas'
         ParentFont = False
       end
+    end
+    object cyPageControl1: TcyPageControl
+      Left = 0
+      Height = 352
+      Top = 98
+      Width = 330
+      ActivePage = tbsArena
+      Align = alClient
+      ShowTabs = False
+      TabIndex = 0
+      TabOrder = 2
+      ActiveTabColors.FromColor = clWhite
+      ActiveTabColors.SpeedPercent = 100
+      ActiveTabColors.ToColor = clBtnFace
+      InactiveTabColors.FromColor = clWhite
+      InactiveTabColors.SpeedPercent = 100
+      InactiveTabColors.ToColor = clBtnFace
+      object tbsArena: TTabSheet
+        Caption = 'tbsArena'
+        ClientHeight = 351
+        ClientWidth = 330
+        object Panel3: TPanel
+          Left = 0
+          Height = 351
+          Top = 0
+          Width = 330
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 351
+          ClientWidth = 330
+          ParentBackground = False
+          TabOrder = 0
+          object lblAction: TLabel
+            Left = 18
+            Height = 17
+            Top = 16
+            Width = 294
+            Align = alTop
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 12
+            BorderSpacing.Around = 6
+            Caption = 'Operation Type:'
+            Font.Color = clLime
+            Font.Height = -15
+            Font.Name = 'Arial'
+            Font.Quality = fqCleartypeNatural
+            ParentFont = False
+          end
+          object cbAction: TComboBox
+            Left = 18
+            Height = 23
+            Top = 39
+            Width = 294
+            Align = alTop
+            BorderSpacing.Left = 12
+            BorderSpacing.Right = 12
+            BorderSpacing.Around = 6
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Consolas'
+            Font.Quality = fqCleartypeNatural
+            ItemHeight = 17
+            ParentFont = False
+            Style = csOwnerDrawFixed
+            TabOrder = 0
+            OnChange = cbActionChange
+            OnDrawItem = cbActionDrawItem
+          end
+          object lblTarget: TLabel
+            Left = 18
+            Height = 20
+            Top = 78
+            Width = 294
+            Align = alTop
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 12
+            BorderSpacing.Around = 6
+            Caption = 'Target Node:'
+            Font.Color = clLime
+            Font.Height = -17
+            Font.Name = 'Consolas'
+            Font.Quality = fqCleartypeNatural
+            ParentFont = False
+          end
+          object cbTarget: TComboBox
+            Left = 18
+            Height = 23
+            Top = 104
+            Width = 294
+            Align = alTop
+            BorderSpacing.Left = 12
+            BorderSpacing.Right = 12
+            BorderSpacing.Around = 6
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Consolas'
+            Font.Quality = fqCleartypeNatural
+            ItemHeight = 17
+            ParentFont = False
+            Style = csOwnerDrawFixed
+            TabOrder = 1
+            OnDrawItem = cbTargetDrawItem
+          end
+          object lblBudget: TLabel
+            Left = 18
+            Height = 20
+            Top = 143
+            Width = 294
+            Align = alTop
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 10
+            BorderSpacing.Right = 12
+            BorderSpacing.Around = 6
+            Caption = 'Budget Allocate:'
+            Font.Color = clLime
+            Font.Height = -17
+            Font.Name = 'Consolas'
+            Font.Quality = fqCleartypeNatural
+            ParentFont = False
+          end
+          object tbBudget: TTrackBar
+            Left = 10
+            Height = 25
+            Top = 169
+            Width = 310
+            Max = 100
+            Position = 0
+            OnChange = tbBudgetChange
+            Align = alTop
+            BorderSpacing.Left = 4
+            BorderSpacing.Right = 4
+            BorderSpacing.Around = 6
+            TabOrder = 2
+          end
+          object pbTelemetry: TPaintBox
+            Left = 15
+            Height = 116
+            Top = 220
+            Width = 300
+            Align = alClient
+            Anchors = [akRight]
+            BorderSpacing.Around = 15
+            OnPaint = pbTelemetryPaint
+          end
+          object lbvBudget: TLabel
+            Left = 18
+            Height = 1
+            Top = 204
+            Width = 294
+            Align = alTop
+            BorderSpacing.Left = 12
+            BorderSpacing.Top = 4
+            BorderSpacing.Right = 12
+            BorderSpacing.Around = 6
+            Font.Color = clFuchsia
+            Font.Height = -15
+            Font.Name = 'Arial'
+            Font.Quality = fqCleartypeNatural
+            ParentFont = False
+          end
+        end
+      end
+      object tbBlackMarket: TTabSheet
+        Caption = 'tbBlackMarket'
+        ClientHeight = 351
+        ClientWidth = 330
+        object Panel5: TPanel
+          Left = 0
+          Height = 351
+          Top = 0
+          Width = 330
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 351
+          ClientWidth = 330
+          ParentBackground = False
+          TabOrder = 0
+          object lblUpgQuantum: TLabel
+            Left = 15
+            Height = 38
+            Top = 15
+            Width = 300
+            Align = alTop
+            AutoSize = False
+            BorderSpacing.Around = 15
+            Caption = 'Quantum Decryption (Lvl 0) - Cost: $0'
+            Font.Color = clYellow
+            Font.Height = -15
+            Font.Name = 'Consolas'
+            ParentFont = False
+            WordWrap = True
+          end
+          object btnBuyQuantum: TButton
+            Left = 15
+            Height = 35
+            Top = 68
+            Width = 300
+            Align = alTop
+            BorderSpacing.Around = 15
+            Caption = 'BUY UPGRADE'
+            Font.Color = clWindowText
+            Font.Name = 'Consolas'
+            ParentFont = False
+            TabOrder = 0
+            OnClick = btnBuyQuantumClick
+          end
+          object lblUpgProxy: TLabel
+            Left = 15
+            Height = 48
+            Top = 118
+            Width = 300
+            Align = alTop
+            AutoSize = False
+            BorderSpacing.Around = 15
+            Caption = 'Offshore Proxy (Lvl 0) - Cost: $0'
+            Font.Color = clYellow
+            Font.Height = -15
+            Font.Name = 'Consolas'
+            ParentFont = False
+            WordWrap = True
+          end
+          object btnBuyProxy: TButton
+            Left = 15
+            Height = 35
+            Top = 181
+            Width = 300
+            Align = alTop
+            BorderSpacing.Around = 15
+            Caption = 'BUY UPGRADE'
+            Font.Color = clWindowText
+            Font.Name = 'Consolas'
+            ParentFont = False
+            TabOrder = 1
+            OnClick = btnBuyProxyClick
+          end
+        end
+      end
+      object tbsSetting: TTabSheet
+        Caption = 'tbsSetting'
+        ClientHeight = 351
+        ClientWidth = 330
+        object Panel4: TPanel
+          Left = 0
+          Height = 351
+          Top = 0
+          Width = 330
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 351
+          ClientWidth = 330
+          ParentBackground = False
+          TabOrder = 0
+          object lblLanguage: TLabel
+            Left = 14
+            Height = 17
+            Top = 63
+            Width = 302
+            Align = alTop
+            BorderSpacing.Around = 14
+            Caption = 'AI Language:'
+            Font.Color = clYellow
+            Font.Height = -15
+            Font.Name = 'Arial'
+            ParentFont = False
+          end
+          object cbLanguage: TComboBox
+            Left = 12
+            Height = 23
+            Top = 94
+            Width = 306
+            Align = alTop
+            BorderSpacing.Around = 12
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Consolas'
+            ItemHeight = 17
+            ParentFont = False
+            ReadOnly = True
+            Style = csOwnerDrawFixed
+            TabOrder = 0
+            OnDrawItem = cbLanguageDrawItem
+          end
+          object btnOpenSettings: TColorSpeedButton
+            Cursor = crHandPoint
+            Left = 15
+            Height = 33
+            Top = 15
+            Width = 300
+            Align = alTop
+            BorderSpacing.Around = 15
+            Caption = 'CONFIGURE AI SERVICE'
+            Font.Color = clBlack
+            Font.Height = -16
+            Font.Name = 'Consolas'
+            Font.Style = [fsBold]
+            ParentFont = False
+            OnClick = btnOpenSettingsClick
+            TextAutoSize = True
+            Toggle = False
+            Pressed = False
+            PopupMode = False
+            StateNormal.Color = 1827545
+            StateNormal.BorderColor = 7857110
+            StateNormal.BorderWidth = 1
+            StateHover.Color = 10915802
+            StateHover.BorderColor = 3609794
+            StateHover.BorderWidth = 1
+            StateActive.Color = 16245964
+            StateActive.BorderColor = 10048512
+            StateActive.BorderWidth = 1
+            StateDisabled.Color = 4430384
+            StateDisabled.BorderColor = 10071930
+            StateDisabled.BorderWidth = 1
+          end
+        end
+      end
+    end
+    object Panel6: TPanel
+      Left = 0
+      Height = 34
+      Top = 666
+      Width = 330
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 34
+      ClientWidth = 330
+      ParentBackground = False
+      TabOrder = 3
+      object spGoArena: TColorSpeedButton
+        Cursor = crHandPoint
+        Left = 3
+        Height = 28
+        Top = 3
+        Width = 110
+        Align = alLeft
+        BorderSpacing.Around = 3
+        Caption = 'Exploit'
+        Font.Color = 10419438
+        Font.Name = 'Consolas'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = spGoArenaClick
+        TextAutoSize = True
+        Toggle = False
+        Pressed = False
+        PopupMode = False
+        StateNormal.Color = 8742964
+        StateNormal.BorderColor = 13679242
+        StateNormal.BorderWidth = 1
+        StateHover.Color = 10915802
+        StateHover.BorderColor = 3609794
+        StateHover.BorderWidth = 1
+        StateActive.Color = 16245964
+        StateActive.BorderColor = 10048512
+        StateActive.BorderWidth = 1
+        StateDisabled.Color = 4430384
+        StateDisabled.BorderColor = 10071930
+        StateDisabled.BorderWidth = 1
+      end
+      object spGoBM: TColorSpeedButton
+        Cursor = crHandPoint
+        Left = 116
+        Height = 28
+        Top = 3
+        Width = 102
+        Align = alClient
+        BorderSpacing.Around = 3
+        Caption = 'Black Market'
+        Font.Color = 10419438
+        Font.Name = 'Consolas'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = spGoBMClick
+        TextAutoSize = True
+        Toggle = False
+        Pressed = False
+        PopupMode = False
+        StateNormal.Color = 8742964
+        StateNormal.BorderColor = 13679242
+        StateNormal.BorderWidth = 1
+        StateHover.Color = 10915802
+        StateHover.BorderColor = 3609794
+        StateHover.BorderWidth = 1
+        StateActive.Color = 16245964
+        StateActive.BorderColor = 10048512
+        StateActive.BorderWidth = 1
+        StateDisabled.Color = 4430384
+        StateDisabled.BorderColor = 10071930
+        StateDisabled.BorderWidth = 1
+      end
+      object spGoSetting: TColorSpeedButton
+        Cursor = crHandPoint
+        Left = 221
+        Height = 28
+        Top = 3
+        Width = 106
+        Align = alRight
+        BorderSpacing.Around = 3
+        Caption = 'Setting'
+        Font.Color = 10419438
+        Font.Name = 'Consolas'
+        Font.Style = [fsBold]
+        ParentFont = False
+        OnClick = spGoSettingClick
+        TextAutoSize = True
+        Toggle = False
+        Pressed = False
+        PopupMode = False
+        StateNormal.Color = 8742964
+        StateNormal.BorderColor = 13679242
+        StateNormal.BorderWidth = 1
+        StateHover.Color = 10915802
+        StateHover.BorderColor = 3609794
+        StateHover.BorderWidth = 1
+        StateActive.Color = 16245964
+        StateActive.BorderColor = 10048512
+        StateActive.BorderWidth = 1
+        StateDisabled.Color = 4430384
+        StateDisabled.BorderColor = 10071930
+        StateDisabled.BorderWidth = 1
+      end
+    end
+    object btnExecute: TColorSpeedButton
+      Cursor = crHandPoint
+      Left = 3
+      Height = 47
+      Top = 616
+      Width = 324
+      Align = alBottom
+      BorderSpacing.Around = 3
+      Caption = 'EXECUTE EXPLOIT'
+      Font.Color = 10419438
+      Font.Height = -19
+      Font.Name = 'Consolas'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnExecuteClick
+      TextAutoSize = True
+      Toggle = False
+      Pressed = False
+      PopupMode = False
+      StateNormal.Color = 2332200
+      StateNormal.BorderColor = 9687178
+      StateNormal.BorderWidth = 1
+      StateHover.Color = 10915802
+      StateHover.BorderColor = 3609794
+      StateHover.BorderWidth = 1
+      StateActive.Color = 16245964
+      StateActive.BorderColor = 10048512
+      StateActive.BorderWidth = 1
+      StateDisabled.Color = 4430384
+      StateDisabled.BorderColor = 10071930
+      StateDisabled.BorderWidth = 1
     end
   end
   object tmrRender: TTimer
@@ -793,5 +944,34 @@ object FormMain: TFormMain
     OnTimer = tmrRenderTimer
     Left = 48
     Top = 48
+  end
+  object MainMenu1: TMainMenu
+    Left = 254
+    Top = 113
+    object MenuItem1: TMenuItem
+      Caption = 'Aplikasi'
+      object mnWeb: TMenuItem
+        Caption = 'Go Website'
+        OnClick = mnWebClick
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object mnEzit: TMenuItem
+        Caption = 'Exit'
+        OnClick = mnEzitClick
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Help'
+      object MenuItem3: TMenuItem
+        Caption = 'Tutorial'
+        OnClick = MenuItem3Click
+      end
+      object mnAbout: TMenuItem
+        Caption = 'About Me'
+        OnClick = mnAboutClick
+      end
+    end
   end
 end

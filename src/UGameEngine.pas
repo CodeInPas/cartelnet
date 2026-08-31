@@ -5,7 +5,7 @@ unit UGameEngine;
 interface
 
 uses
-  Classes, SysUtils, UGameTypes, Math, UDatabase, UAIClient;
+  Classes, SysUtils, UGameTypes, Math, UDatabase, UAIClient,UAbout;
 
 type
   TEngineLogEvent = procedure(const ASender, AMessage: String) of object;
@@ -28,7 +28,7 @@ type
     FPlayerTargetNode: String;
     FPlayerBudget: Int64;
     FPlayerBandwidth: Integer;
-
+    frmAbout: TfrmAbout;
     procedure InitializeStartingNodes;
     procedure YieldResources;
     procedure CheckWinLossConditions;

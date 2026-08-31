@@ -5,26 +5,38 @@ unit UMain;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Math, ExtCtrls, StdCtrls,
-  ComCtrls, MMSystem, UGameTypes, UDatabase, UGameEngine,uSetting;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Math, ExtCtrls, LCLIntf,
+  StdCtrls, ComCtrls, Menus, MMSystem, UGameTypes, UDatabase, UGameEngine,
+  uSetting, cyPageControl, ColorSpeedButton, Types,UAbout;
 
 type
   { TFormMain }
   TFormMain = class(TForm)
     btnBuyProxy: TButton;
     btnBuyQuantum: TButton;
-    btnExecute: TButton;
-    btnOpenSettings: TButton;
+    btnOpenSettings: TColorSpeedButton;
     cbAction: TComboBox;
     cbLanguage: TComboBox;
     cbTarget: TComboBox;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    mnAbout: TMenuItem;
+    mnWeb: TMenuItem;
+    mnEzit: TMenuItem;
+    Separator1: TMenuItem;
+    spGoArena: TColorSpeedButton;
+    btnExecute: TColorSpeedButton;
+    spGoBM: TColorSpeedButton;
+    spGoSetting: TColorSpeedButton;
+    cyPageControl1: TcyPageControl;
     edtTaunt: TEdit;
     Image1: TImage;
     lblAction: TLabel;
     lblAIPersona: TLabel;
     lblBandwidth: TLabel;
     lblBudget: TLabel;
-    lbvBudget: TLabel;
     lblFunds: TLabel;
     lblHeat: TLabel;
     lblLanguage: TLabel;
@@ -32,32 +44,46 @@ type
     lblTaunt: TLabel;
     lblUpgProxy: TLabel;
     lblUpgQuantum: TLabel;
+    lbvBudget: TLabel;
     memLog: TMemo;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
+    Panel6: TPanel;
     pbMap: TPaintBox;
     pbTelemetry: TPaintBox;
     pnlLeft: TPanel;
     pnlRight: TPanel;
-    pgControls: TPageControl;
+    tbsArena: TTabSheet;
+    tbBlackMarket: TTabSheet;
+    tbsSetting: TTabSheet;
     tbBudget: TTrackBar;
     tmrRender: TTimer;
-    tsAttack: TTabSheet;
-    tsMarket: TTabSheet;
-    tsSettings: TTabSheet;       // <-- Tab baru
     procedure btnExecuteClick(Sender: TObject);
     procedure cbActionChange(Sender: TObject);
     procedure btnBuyQuantumClick(Sender: TObject);
     procedure btnBuyProxyClick(Sender: TObject);
     procedure btnOpenSettingsClick(Sender: TObject); // <-- Event handler baru
+    procedure cbActionDrawItem(
+      Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
+    procedure cbLanguageDrawItem(
+      Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
+    procedure cbTargetDrawItem(
+      Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
     procedure edtTauntKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure mnAboutClick(Sender: TObject);
+    procedure mnEzitClick(Sender: TObject);
+    procedure mnWebClick(Sender: TObject);
     procedure pbMapPaint(Sender: TObject);
+    procedure spGoArenaClick(Sender: TObject);
+    procedure spGoBMClick(Sender: TObject);
+    procedure spGoSettingClick(Sender: TObject);
     procedure tbBudgetChange(Sender: TObject);
     procedure tmrRenderTimer(Sender: TObject);
     procedure pbTelemetryPaint(Sender: TObject); // <-- TAMBAHKAN BARIS INI
@@ -70,7 +96,7 @@ type
     FGlitchActive: Integer;
     FMatrixDrops: array of Double;
     FMatrixSpeeds: array of Double;
-
+    frmAbout : TfrmAbout;
     FDataFlowOffset: Double;
 
     procedure EngineLog(const ASender, AMessage: String);
@@ -166,6 +192,29 @@ end;
 procedure TFormMain.FormShow(Sender: TObject);
 begin
   lbvBudget.Caption:=Inttostr(tbBudget.Position);
+end;
+
+procedure TFormMain.MenuItem3Click(Sender: TObject);
+begin
+  OpenDocument(ExtractFilePath(Application.ExeName) + 'tutorial.pdf');
+end;
+
+procedure TFormMain.mnAboutClick(Sender: TObject);
+begin
+  if Assigned(frmAbout) then frmAbout.free;
+
+  frmAbout:= TfrmAbout.Create(self);
+  frmAbout.ShowModal;
+end;
+
+procedure TFormMain.mnEzitClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TFormMain.mnWebClick(Sender: TObject);
+begin
+  OpenDocument('https://github.com/CodeInPas');
 end;
 
 { --- RENDERING & ANIMASI --- }
@@ -519,6 +568,21 @@ begin
   pbMap.Canvas.Draw(OffsetX, OffsetY, FMapBuffer);
 end;
 
+procedure TFormMain.spGoArenaClick(Sender: TObject);
+begin
+  tbsArena.show;
+end;
+
+procedure TFormMain.spGoBMClick(Sender: TObject);
+begin
+  tbBlackMarket.show;
+end;
+
+procedure TFormMain.spGoSettingClick(Sender: TObject);
+begin
+  tbsSetting.show;
+end;
+
 procedure TFormMain.tbBudgetChange(Sender: TObject);
 begin
   lbvBudget.Caption:=Inttostr(tbBudget.Position);
@@ -858,6 +922,74 @@ begin
   finally
     FormSetting.Free;
   end;
+end;
+
+procedure TFormMain.cbActionDrawItem(
+  Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
+var
+  CB: TComboBox;
+  TextY: Integer;
+begin
+  CB := Control as TComboBox;
+
+  // Background gelap seragam
+  CB.Canvas.Brush.Color := RGBToColor(20, 20, 20);
+  CB.Canvas.FillRect(ARect);
+  CB.BorderStyle:=bsnone;
+
+  // Teks hijau terminal
+  CB.Canvas.Font.Color := RGBToColor(0, 255, 0);
+
+  // Menghitung posisi Y agar teks berada tepat di tengah secara vertikal
+  TextY := ARect.Top + (ARect.Height - CB.Canvas.TextHeight(CB.Items[Index])) div 2;
+
+  CB.Canvas.TextOut(ARect.Left + 8, TextY, CB.Items[Index]);
+
+end;
+
+procedure TFormMain.cbLanguageDrawItem(
+  Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
+var
+  CB: TComboBox;
+  TextY: Integer;
+begin
+  CB := Control as TComboBox;
+
+  // Background gelap seragam
+  CB.Canvas.Brush.Color := RGBToColor(20, 20, 20);
+  CB.Canvas.FillRect(ARect);
+  CB.BorderStyle:=bsnone;
+
+  // Teks hijau terminal
+  CB.Canvas.Font.Color := RGBToColor(0, 255, 0);
+
+  // Menghitung posisi Y agar teks berada tepat di tengah secara vertikal
+  TextY := ARect.Top + (ARect.Height - CB.Canvas.TextHeight(CB.Items[Index])) div 2;
+
+  CB.Canvas.TextOut(ARect.Left + 8, TextY, CB.Items[Index]);
+end;
+
+procedure TFormMain.cbTargetDrawItem(
+  Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
+var
+  CB: TComboBox;
+  TextY: Integer;
+begin
+  CB := Control as TComboBox;
+
+  // Background gelap seragam
+  CB.Canvas.Brush.Color := RGBToColor(20, 20, 20);
+  CB.Canvas.FillRect(ARect);
+  CB.BorderStyle:=bsnone;
+
+  // Teks hijau terminal
+  CB.Canvas.Font.Color := RGBToColor(0, 255, 0);
+
+  // Menghitung posisi Y agar teks berada tepat di tengah secara vertikal
+  TextY := ARect.Top + (ARect.Height - CB.Canvas.TextHeight(CB.Items[Index])) div 2;
+
+  CB.Canvas.TextOut(ARect.Left + 8, TextY, CB.Items[Index]);
+
 end;
 
 procedure TFormMain.edtTauntKeyPress(Sender: TObject; var Key: char);
