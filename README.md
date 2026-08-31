@@ -95,6 +95,6 @@ If you find **CartelNET** helpful and want to support its ongoing development, c
 
 > **💡 Your support keeps the momentum going!**  
 > Every contribution directly fuels my passion, energy, and motivation to continuously build, maintain, and release even more useful open-source desktop applications for the developer community.
->
-> ## Download Release ( Binary )
+---
+## Download Release ( Binary )
 https://github.com/CodeInPas/cartelnet/releases/tag/releasev01
